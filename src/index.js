@@ -90,11 +90,10 @@ class ParallaxScrollView extends Component {
     const footerSpacer = this._renderFooterSpacer({ contentBackgroundColor });
     const maybeStickyHeader = this._maybeRenderStickyHeader({ parallaxHeaderHeight, stickyHeaderHeight, backgroundColor, renderFixedHeader, renderStickyHeader });
     const scrollElement = renderScrollComponent(scrollViewProps);
-
+    
     return (
       <View style={[style, styles.container]}
             onLayout={(e) => this._maybeUpdateViewDimensions(e)}>
-        { background }
         {
           React.cloneElement(scrollElement, {
               ref: SCROLLVIEW_REF,
@@ -108,6 +107,7 @@ class ParallaxScrollView extends Component {
           )
         }
         { maybeStickyHeader }
+        { background }
       </View>
     );
   }
