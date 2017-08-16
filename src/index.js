@@ -3,6 +3,7 @@ import {
   Animated,
   Dimensions,
   ScrollView,
+  Image,
   View
 } from 'react-native';
 
@@ -66,6 +67,7 @@ class ParallaxScrollView extends Component {
   render() {
     const {
       backgroundColor,
+      backgroundImage,
       backgroundScrollSpeed,
       children,
       contentBackgroundColor,
@@ -94,6 +96,9 @@ class ParallaxScrollView extends Component {
     return (
       <View style={[style, styles.container]}
             onLayout={(e) => this._maybeUpdateViewDimensions(e)}>
+        <Image
+            source={backgroundImage}
+            style={styles.colorBackground}>
         {
           React.cloneElement(scrollElement, {
               ref: SCROLLVIEW_REF,
@@ -108,6 +113,7 @@ class ParallaxScrollView extends Component {
         }
         { maybeStickyHeader }
         { background }
+        </Image>
       </View>
     );
   }
@@ -186,7 +192,7 @@ class ParallaxScrollView extends Component {
     return (
       <Animated.View
         style={[styles.backgroundImage, {
-            backgroundColor: backgroundColor,
+            //backgroundColor: backgroundColor,
             height: parallaxHeaderHeight,
             width: viewWidth,
             opacity: fadeOutBackground

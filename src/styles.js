@@ -5,6 +5,12 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: 'transparent'
   },
+  colorBackground: {
+    flex: 1,
+    width: undefined,
+    height: undefined,
+    backgroundColor:'transparent'
+  },
   parallaxHeaderContainer: {
     backgroundColor: 'transparent',
     overflow: 'hidden'
